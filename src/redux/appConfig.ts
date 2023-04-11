@@ -27,7 +27,7 @@ const initialState = {
   }
 }
 
-const URL = 'http://localhost:3000';
+const URL = import.meta.env.VITE_API_URL;
 
 export const fetchListings = createAsyncThunk('fetchListings', async (currency: string) => {
   try {
@@ -41,8 +41,6 @@ export const fetchListings = createAsyncThunk('fetchListings', async (currency: 
     }
   }
 })
-
-
 
 export const getDetails = createAsyncThunk('getDetails', async ({slug, convert}: {slug: string, convert: string}) => {
   try {

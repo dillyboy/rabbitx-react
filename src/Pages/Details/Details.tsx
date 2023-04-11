@@ -1,6 +1,6 @@
+import CircularProgress from '@mui/material/CircularProgress';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import Header from '../../Components/Header/Header'
 import currencies from '../../Constants/currencies';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { getDetails } from '../../redux/appConfig';
@@ -42,12 +42,9 @@ export default function Details() {
   }, [appConfig.details]);
 
   return (
-    <div style={{ margin: '20px', paddingTop: '40px'}}>
-      <Header></Header>
+    <div className="page-container">
 
       {appConfig.loadingDetails === false && appConfig.details ? (
-
-      
         <div style={{maxWidth: '1000px', margin: '0 auto'}}>
           <div className='p-2' style={{ borderBottom: '1px solid #424242'}}>
             <div className='flex mb-4'>
@@ -88,7 +85,11 @@ export default function Details() {
           </div>
 
         </div>
-      ): null}
+      ): (
+        <div className='flex justify-center items-center h-[calc(100vh-80px)]'>
+          <CircularProgress />
+        </div>
+        )}
     </div>
   )
 }

@@ -1,6 +1,5 @@
 import LinearProgress from '@mui/material/LinearProgress';
 import { useEffect, useState } from 'react';
-import Header from '../../Components/Header/Header';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { fetchListings } from '../../redux/appConfig';
 import { getNumberColor, makeNumberReadable } from '../../utils/textModifiers';
@@ -40,9 +39,7 @@ function List() {
   }
 
   return (
-    <div style={{ margin: '20px', paddingTop: '40px'}}>
-      <Header></Header>
-
+    <div className="page-container">
       <table className="w-full">
         <thead style={{position: 'sticky', top: '40px', background: '#424242'}}>
           <tr className='text-sm opacity-80'>
