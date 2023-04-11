@@ -1,0 +1,44 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+}
+
+body {
+  margin: 0;
+}
+
+table {
+  text-align: left;
+
+  th, td {
+    padding: 6px;
+    font-weight: normal;
+  }
+
+  tr {
+    border-bottom: 1px solid #424242;
+
+    &:hover {
+      background: #2b2b2b;
+    }
+  }
+}
+
+#appHeader {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  height: 40px;
+  background: rgb(49, 49, 49);
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 24px 38px 3px, rgba(0, 0, 0, 0.12) 0px 9px 46px 8px, rgba(0, 0, 0, 0.2) 0px 11px 15px -7px;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
