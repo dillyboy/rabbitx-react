@@ -2,16 +2,16 @@ import { CurrencyType } from "../redux/appConfig";
 
 const currencies: CurrencyType[] = [
   {
-    currency: 'USD',
-    symbol: '$'
+    symbol: 'USD',
+    sign: '$'
   },
   {
-    currency: 'EUR',
-    symbol: '€'
+    symbol: 'EUR',
+    sign: '€'
   },
   {
-    currency: 'CNY',
-    symbol: '¥'
+    symbol: 'CNY',
+    sign: '¥'
   }
 ];
 

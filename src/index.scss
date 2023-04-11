@@ -47,6 +47,23 @@ table {
   margin-right: 6px;
 }    
 
+.coin-logo-large {
+  height: 45px;
+  width: 45px;
+  border-radius: 12px;
+  display: inline;
+  margin-right: 6px;
+}   
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+.grid-item {
+  padding: 20px;
+  margin: 20px 0;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -9,7 +9,7 @@ function App() {
   return (
     <Routes>
       <Route element={<List/>} path="/" />
-      <Route element={<Details/>} path="/details" />
+      <Route element={<Details/>} path="/details/:slug" />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   )

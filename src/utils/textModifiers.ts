@@ -1,5 +1,9 @@
 const makeNumberReadable = (num: number) => {
-  return num.toLocaleString('en-US', {maximumFractionDigits:2, minimumFractionDigits:2}); // "1,234.57"
+  if (num) {
+    return num.toLocaleString('en-US', {maximumFractionDigits:2, minimumFractionDigits:2});
+  } else {
+    return num
+  }
 }
 
 const getNumberColor = (num: number) => {

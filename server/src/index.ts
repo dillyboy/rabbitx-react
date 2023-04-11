@@ -26,6 +26,20 @@ app.get('/listings', async (req: Request, res: Response) => {
   }
 });
 
+app.get('/getDetails', async (req: Request, res: Response) => {
+  try {
+    let {slug, convert} = req.query;
+    if (!slug && !convert) {
+      res.status(400).send({message: "plese send a currency"});
+    }
+    
+    const response = await axios.get(`${appConstants.URL}/v2/cryptocurrency/quotes/latest?CMC_PRO_API_KEY=${appConstants.API_KEY}&slug=${slug}&convert=${convert}`);
+    res.status(200).send(response.data);
+  } catch (err) {
+    res.status(400).send({err});
+  }
+});
+
 app.listen(port, () => {
   console.log(`Connect to port ${port}`)
 })
