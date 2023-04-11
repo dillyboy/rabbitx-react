@@ -1,5 +1,10 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import axios from 'axios';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import axios, { AxiosError } from 'axios';
+
+export interface CurrencyType {
+  currency: string,
+  symbol: string
+}
 
 const initialState = {
   selectedCurrency: {
@@ -15,11 +20,14 @@ const URL = 'http://localhost:3000';
 
 export const fetchListings = createAsyncThunk('fetchListings', async (currency: string) => {
   try {
-    console.log(currency);
     const response = await axios.get(`${URL}/listings?convert=${currency}`)
     return response.data;
-  } catch (err) {
-    return err.message;
+  } catch (err: AxiosError | any)  {
+    if (axios.isAxiosError(err))  {
+      return err.message;
+    } else {
+      return err;
+    }
   }
 })
 
@@ -27,10 +35,10 @@ export const appConfigSlice = createSlice({
   name: 'appConfig',
   initialState,
   reducers: {
-    updateSelectedCurrency: (state, action) => {
+    updateSelectedCurrency: (state, action: PayloadAction<CurrencyType>) => {
       state.selectedCurrency = action.payload;
     },
-    updateLastFetch: (state, action) => {
+    updateLastFetch: (state, action: PayloadAction) => {
       state.lastFetch = Date.now();
     },
   },
@@ -39,7 +47,6 @@ export const appConfigSlice = createSlice({
       state.loading = true;
     }),
     builder.addCase(fetchListings.fulfilled, (state, action) => {
-      console.log(action.payload);
       state.data = action.payload.data;
       state.loading = false;
     })

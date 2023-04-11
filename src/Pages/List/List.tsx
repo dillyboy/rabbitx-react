@@ -1,14 +1,14 @@
 import LinearProgress from '@mui/material/LinearProgress';
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import Header from '../../Components/Header/Header';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 import { fetchListings } from '../../redux/appConfig';
 import { getNumberColor, makeNumberReadable } from '../../utils/textModifiers';
 
 function List() {
 
-  const dispatch = useDispatch();
-  const appConfig = useSelector(state => state.appConfig);
+  const dispatch = useAppDispatch();
+  const appConfig = useAppSelector(state => state.appConfig);
   
   const [listItems, setListItems] = useState<any[]>([]);
 
@@ -18,7 +18,7 @@ function List() {
 
   useEffect(() => {
     console.log(appConfig.data);
-    const transformed = appConfig.data.map(item => {
+    const transformed = appConfig.data.map((item: any) => {
       return {
         currency: appConfig.selectedCurrency.symbol,
         id: item.id,
@@ -56,7 +56,7 @@ function List() {
           {listItems.map(item => (
             <tr key={item.id} className='cursor-pointer'>
               <td>{item.rank}</td>
-              <td>{item.name}</td>
+              <td> <img className="coin-logo" src={`https://s2.coinmarketcap.com/static/img/coins/64x64/${item.id}.png`} loading="lazy" alt={`${item.name} Logo`} /> {item.name}</td>
               <td>{item.symbol}</td>
               <td align='right'>{item.currency}{makeNumberReadable(item.price)}</td>
               <td align='right' style={{color: getNumberColor(item.volume_change_24h)}}>{makeNumberReadable(item.volume_change_24h)}</td>

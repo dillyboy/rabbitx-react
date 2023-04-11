@@ -1,4 +1,6 @@
-const currencies = [
+import { CurrencyType } from "../redux/appConfig";
+
+const currencies: CurrencyType[] = [
   {
     currency: 'USD',
     symbol: '$'
