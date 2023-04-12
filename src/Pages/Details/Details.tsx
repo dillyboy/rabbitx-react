@@ -1,6 +1,6 @@
 import CircularProgress from '@mui/material/CircularProgress';
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import currencies from '../../Constants/currencies';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { getDetails } from '../../redux/appConfig';
@@ -47,7 +47,8 @@ export default function Details() {
       {appConfig.loadingDetails === false && appConfig.details ? (
         <div style={{maxWidth: '1000px', margin: '0 auto'}}>
           <div className='p-2' style={{ borderBottom: '1px solid #424242'}}>
-            <div className='flex mb-4'>
+            <span className='text-xs opacity-70'> <Link to="/" className='breadcrumb-link'>Cryptocurrencies</Link> <span className='ml-3'>{appConfig.details?.name}</span> </span>
+            <div className='flex mt-4 mb-4'>
               {appConfig.details.id? <img className="coin-logo-large" src={`https://s2.coinmarketcap.com/static/img/coins/64x64/${appConfig.details.id}.png`} alt={`Logo`} /> : null}
               <h1 className='text-5xl font-bold'>{appConfig.details?.name}</h1>
             </div>

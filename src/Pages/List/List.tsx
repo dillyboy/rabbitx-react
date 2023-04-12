@@ -12,9 +12,13 @@ function List() {
   
   const [listItems, setListItems] = useState<any[]>([]);
   const navigate = useNavigate();
+  const [loadData, setLoadData] = useState(false);
 
   useEffect(() => {
-    dispatch(fetchListings(appConfig.selectedCurrency.symbol))
+    if (loadData || appConfig.data.length === 0) {
+      dispatch(fetchListings(appConfig.selectedCurrency.symbol))
+      setLoadData(true);
+    }
   }, [appConfig.selectedCurrency, appConfig.lastFetch]);
 
   useEffect(() => {

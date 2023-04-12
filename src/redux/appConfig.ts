@@ -64,6 +64,7 @@ export const appConfigSlice = createSlice({
       state.selectedCurrency = action.payload;
     },
     updateLastFetch: (state, action: PayloadAction) => {
+      state.data = [];
       state.lastFetch = Date.now();
     },
   },
