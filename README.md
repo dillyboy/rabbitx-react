@@ -16,3 +16,4 @@ The reason to have an NodeJS express app is because the React application will e
 - Using Vite for fast runtime performance during development.
 - Using TypeScript to minimise errors during development and self document the code.
 - Using Redux Toolkit for state management
+- Using Tailwind CSS utility classes for rapid development
