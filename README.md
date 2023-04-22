@@ -1,4 +1,8 @@
-# How to run the development server
+# Top 100 Crypto Coins
+
+* To view the demo go to [https://dillyboy.github.io/rabbitx-react/](https://dillyboy.github.io/rabbitx-react/) 
+
+## How to run the development server
 
 - Clone the project
 - Install dependencies in the client side with **npm install**
